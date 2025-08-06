@@ -10,6 +10,22 @@ function App() {
     const email = shortData.email.value
     const dataObj = { name, email }
     console.log("from a data add hoyese", dataObj)
+
+
+    fetch('http://localhost:5001/pruser', {
+      method: "POST",
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(dataObj)
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+        if (data.insertedId) {
+          alert('data add hoise')
+        }
+      })
   }
 
   return (
