@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useLoaderData } from 'react-router-dom'
+import { Link, useLoaderData } from 'react-router-dom'
 
 
 
@@ -30,7 +30,7 @@ export default function Datauser() {
             <h1>data number:{dataload.length}</h1>
             {
                 user12.map(data => <p>{data._id}-------{data.email} : {data.name}
-                    <button onClick={() => hendeldelete(data._id)}>X</button></p>)
+                    <button onClick={() => hendeldelete(data._id)}>X</button> <Link to={`/update/${data._id}`}><button>Update</button></Link></p>)
             }
         </div>
     )
