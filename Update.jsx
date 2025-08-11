@@ -9,6 +9,21 @@ export default function Update() {
         const email = datastore.email.value
         const dataobj = { name, email }
         console.log(dataobj)
+        fetch(`http://localhost:5001/pruser/${loaddata._id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(dataobj)
+        }
+        )
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.modifiedCount > 0) {
+                    alert('data update hoyese')
+                }
+            })
     }
     return (
         <div>
